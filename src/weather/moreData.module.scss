@@ -1,0 +1,116 @@
+@import "src/styles/conifg";
+
+.all{
+  margin: $spacing-normal;
+  padding: $spacing-normal;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  grid: {
+    template-columns: repeat(2, minmax(250px, 1fr));
+  }
+  gap: $spacing-normal;
+  transition: 1s;
+}
+
+.title{
+  display: block;
+  grid-column: span 2;
+
+}
+
+.overview{
+  width: 100%;
+  padding: $spacing-normal;
+  display: grid;
+  box-shadow: $main-color 1px 1px 10px;
+  grid: {
+    template-columns: repeat(2, minmax(150px, 1fr));
+    template-rows: repeat(auto-fill, auto);
+  }
+  .umbrella{
+    grid-column: 2;
+    font-size: 20px;
+    padding-top: $spacing-normal;
+    i{
+      font-size: 30px;
+    }
+  }
+
+  .icon{
+    grid-column: span 1;
+    margin: 50px 0 0 0;
+    padding-bottom: 50px;
+    color: $weather-color;
+    font-size: 125px;
+  }
+
+  .description{
+    grid-column: span 1;
+    display: grid;
+    grid: {
+      template-columns: repeat(2, 30px minmax(50px, 1fr));
+      template-rows: repeat(4, minmax(56px, 1fr));
+    }
+    align-items: center;
+
+    .head{
+      font-size: 30px;
+      grid-column: span 4;
+      grid-row: 1;
+    }
+
+    .littleicon{
+      grid-row: span 1;
+      grid-column: span 1;
+      padding: 5px;
+      text-align: center;
+    }
+
+    :not(h2){
+      padding: 5px;
+      font-size: 17px;
+      text-align: left;
+    }
+  }
+}
+
+
+
+@media (max-width: $media-1) {
+  .all{
+    margin: $spacing-shorter;
+    padding: $spacing-shorter;
+    gap: $spacing-shorter;
+  }
+
+  .overview{
+    .icon{
+      font-size: 85px;
+    }
+    .umbrella{
+      i{
+        font-size: 20px;
+      }
+    }
+    .description{
+
+      .head{
+        font-size: 20px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 830px) {
+  .all{
+
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+  }
+
+  .title{
+    grid-column: span 1;
+  }
+
+}

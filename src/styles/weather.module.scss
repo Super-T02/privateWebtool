@@ -1,0 +1,58 @@
+@import "conifg";
+@import "animations.module";
+
+
+.day.card{
+  padding: 30px;
+}
+
+
+
+.placeHolder{
+  animation: blink 2s infinite;
+}
+
+.placeHolderWrapper{
+  overflow: hidden !important;
+}
+
+
+.temperature{
+  display: grid;
+  grid: {
+    template-columns: repeat(2, 1fr);
+    template-rows: repeat(2, auto);
+  }
+
+  :nth-child(3) {
+    padding-top: 5px;
+  }
+}
+
+.wi-thermometer{
+  grid-row: 1 / span 2;
+}
+
+
+
+
+@media (max-width: $media-0) {
+
+  .temperature{
+    span{
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: $media-1) {
+  .temperature{
+    span{
+      font-size: 12px;
+    }
+    .wi-thermometer{
+      font-size: 50px !important;
+    }
+  }
+
+}

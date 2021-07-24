@@ -1,0 +1,30 @@
+
+$media-0: 520px;
+$media-1: 500px;
+
+//Mixin
+@mixin padding-margin-null {
+  margin: 0;
+  padding: 0;
+}
+
+//Sizes
+$headline: 90px;
+$scrollbar: 3px;
+$spacing-normal: 20px;
+$spacing-shorter: 10px;
+
+
+//Colors
+$main-color: #7D6B7D;
+$second-color: rgba(163, 161, 168, 0.8);
+$accent-color: #FFF587;
+$warning-color: #FF665A;
+$second-accent-color: #FF8C64;
+$font-color: white;
+$second-font-color: #3e3e3e;
+$weather-color: rgba(92, 126, 253, 0.85);
+$html-background: #eaeaea;
+
+//Fonts
+$font-family: 'Noto Sans',arial, sans-serif;
