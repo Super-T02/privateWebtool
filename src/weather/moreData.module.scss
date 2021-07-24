@@ -8,6 +8,7 @@
   text-align: center;
   grid: {
     template-columns: repeat(2, minmax(250px, 1fr));
+    template-rows: auto minmax(200px, 400px);
   }
   gap: $spacing-normal;
   transition: 1s;
@@ -21,6 +22,7 @@
 
 .overview{
   width: 100%;
+  height: 100%;
   padding: $spacing-normal;
   display: grid;
   box-shadow: $main-color 1px 1px 10px;
@@ -76,15 +78,36 @@
 }
 
 
+.temp{
+  grid-column: span 1;
+  width: 100%;
+  height: 100%;
+  padding: $spacing-normal;
+  box-shadow: $main-color 1px 1px 10px;
+  overflow: scroll;
+
+  h2 {
+    font-size: 30px;
+  }
+}
 
 @media (max-width: $media-1) {
   .all{
     margin: $spacing-shorter;
     padding: $spacing-shorter;
     gap: $spacing-shorter;
+
+    grid: {
+      template-columns: repeat(2, minmax(250px, 1fr));
+      template-rows: auto minmax(200px, 300px);
+    }
+
   }
 
   .overview{
+
+    max-height: 300px;
+
     .icon{
       font-size: 85px;
     }

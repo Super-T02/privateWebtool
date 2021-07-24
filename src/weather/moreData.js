@@ -1,7 +1,7 @@
 import React from "react";
 import Day from "./Day";
 import style from "./moreData.module.scss";
-import TempChart from "./TempChart";
+import TempChart from "./Charts/TempChart";
 class InformationBoard extends React.Component {
 
     render() {
@@ -20,12 +20,30 @@ class InformationBoard extends React.Component {
             pressure,
             humidity,
             pop,
+            feels_like,
         } = data;
 
         const {
             min,
             max,
         } = temp;
+
+
+        // Temperature data for the chart
+        const temperature = {
+            temp: {
+                Morgens: temp.morn,
+                Mittags: temp.day,
+                Abends: temp.eve,
+                Nachts: temp.night,
+            },
+            feels: {
+                Morgens: feels_like.morn,
+                Mittags: feels_like.day,
+                Abends: feels_like.eve,
+                Nachts: feels_like.night,
+            },
+        }
 
         const hourFormate = new Intl.DateTimeFormat('de-DE',
             {hour: '2-digit', minute: '2-digit'}).format;
@@ -90,8 +108,11 @@ class InformationBoard extends React.Component {
                     </div>
 
                 </div>
-                <div>
-                    <TempChart/>
+                <div className={style.temp}>
+                    <h2><i className={"wi wi-thermometer"} /> Temperatur</h2>
+                    <div>
+                        <TempChart data={temperature}/>
+                    </div>
                 </div>
             </div>
 
