@@ -8,7 +8,7 @@
   text-align: center;
   grid: {
     template-columns: repeat(2, minmax(250px, 1fr));
-    template-rows: auto minmax(200px, 400px);
+    template-rows: auto minmax(200px, 450px);
   }
   gap: $spacing-normal;
   transition: 1s;
@@ -32,11 +32,17 @@
   }
   .umbrella{
     grid-column: 2;
-    font-size: 20px;
+    font-size: 25px;
+    margin-top: 15px;
     padding-top: $spacing-normal;
     i{
       font-size: 30px;
     }
+  }
+
+  .bigTep{
+    padding-top: 15px;
+    font-size: 30px;
   }
 
   .icon{
@@ -112,14 +118,20 @@
       font-size: 85px;
     }
     .umbrella{
+      margin-top: 5px;
       i{
         font-size: 20px;
       }
     }
+
+    .bigTep{
+      padding-top: 10px;
+    }
+
     .description{
 
       .head{
-        font-size: 20px;
+        font-size: 25px;
       }
     }
   }
@@ -130,6 +142,17 @@
   .all{
 
     grid-template-columns: repeat(1, minmax(250px, 1fr));
+  }
+
+  .overview{
+    .bigTep{
+      padding-top: unset;
+      font-size: 20px;
+    }
+
+    .umbrella{
+      margin-top: unset;
+    }
   }
 
   .title{

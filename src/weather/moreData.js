@@ -51,7 +51,7 @@ class InformationBoard extends React.Component {
         const sunrise = hourFormate(new Date(data.sunrise * 1000));
         const sunset =  hourFormate(new Date(data.sunset * 1000));
 
-        let date = '';
+        let date;
         let selected = new Date(dt * 1000);
         let now = new Date();
 
@@ -70,8 +70,6 @@ class InformationBoard extends React.Component {
             else date = Day.toDay(selected.getDay());
         }else date = Day.toDay(selected.getDay());
 
-        console.log(this.props.moreInformation); // TODO: Remove
-
         // Render
         return (
             <div className={"card " + style.all}>
@@ -81,10 +79,10 @@ class InformationBoard extends React.Component {
                         <h2 className={style.head}>Überblick</h2>
                         {/*Temperature*/}
                         <i className={"wi wi-thermometer " + style.littleicon} />
-                        <div>Min: {min | 1}&#8451;</div>
+                        <div>Min: {min | 1}<i className={"wi wi-celsius"}/></div>
 
                         <i className={"wi wi-thermometer " + style.littleicon} />
-                        <div>Max:  {max | 1}&#8451;</div>
+                        <div>Max:  {max | 1}<i className={"wi wi-celsius"}/></div>
 
                         {/*Sunrise*/}
                         <i className={"wi wi-sunrise " + style.littleicon}/>
@@ -105,6 +103,7 @@ class InformationBoard extends React.Component {
                     <div>
                         <div className={style.umbrella}><i className={"wi wi-umbrella"}/> {pop * 100}%</div>
                         <i className={"wi " + iconDay + " " + style.icon}/>
+                        <div className={style.bigTep}><i className={"wi wi-thermometer"}/> {max | 1} <i className={"wi wi-celsius"}/></div>
                     </div>
 
                 </div>
