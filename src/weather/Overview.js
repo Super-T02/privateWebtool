@@ -46,24 +46,6 @@ class Overview extends React.Component {
         }
     }
 
-    /**
-     * Scroll vertical with the mousewheel
-     * @param e
-     */
-    scrollVertical= (e) => {
-        const overview = document.getElementById("overviewFiveDays");
-        if(e.deltaY > 0) overview.scrollLeft += 25;
-        else overview.scrollLeft -= 25;
-    }
-    onEnter = () => {
-        window.addEventListener("wheel", this.scrollVertical);
-        document.getElementsByTagName('body')[0].classList.add("stop");
-    }
-    onLeave =() => {
-        window.removeEventListener("wheel", this.scrollVertical);
-        document.getElementsByTagName('body')[0].classList.remove("stop");
-    }
-
     generateKey(date) {
         return '' + date.getDate() + date.getMonth() + date.getFullYear();
     }
