@@ -16,7 +16,8 @@ class Placeholder extends React.Component{
                     <div className={"card day " + style.placeHolder} />
                     <div className={"card day " + style.placeHolder} />
                     <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} /><div className={"card day " + style.placeHolder} />
+                    <div className={"card day " + style.placeHolder} />
+                    <div className={"card day " + style.placeHolder} />
                     <div className={"card day " + style.placeHolder} />
                     <div className={"card day " + style.placeHolder} />
                     <div className={"card day " + style.placeHolder} />
@@ -86,6 +87,27 @@ class Overview extends React.Component {
 
     }
 
+    scrollLeft(id){
+        const gallery = document.getElementById(id);
+        const scrollWidth = document.getElementsByClassName("day")[0].clientWidth + 10;
+
+        gallery.scrollBy({
+            top: 0,
+            left: -scrollWidth,
+            behavior: "smooth",
+        })
+    }
+
+    scrollRight(id){
+        const gallery = document.getElementById(id);
+        const scrollWidth = document.getElementsByClassName("day")[0].clientWidth + 10;
+        gallery.scrollBy({
+            top: 0,
+            left: +scrollWidth,
+            behavior: "smooth",
+        })
+    }
+
     render() {
         const {error, isLoaded, weather, moreInformation} = this.state;
         let rows = [];
@@ -122,15 +144,18 @@ class Overview extends React.Component {
             } else
                 return (
                     <>
-                        <div
-                            id="overviewFiveDays"
-                            onMouseOver={this.onEnter}
-                            onMouseLeave={this.onLeave}
-                        >
-                            {rows}
+                        <div >
+                            <div className={style.leftSlider} onClick={() => this.scrollLeft("overviewFiveDays")}>
+                                &#10094;
+                            </div>
+                            <div className={style.rightSlider} onClick={() => this.scrollRight("overviewFiveDays")}>
+                                &#10095;
+                            </div>
+                            <div id={"overviewFiveDays"}>
+                                {rows}
+                            </div>
+                            <InformationBoard moreInformation={moreInformation}/>
                         </div>
-
-                        <InformationBoard moreInformation={moreInformation}/>
                     </>
                 );
         } else {
