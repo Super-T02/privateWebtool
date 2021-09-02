@@ -21,7 +21,28 @@ class Board extends React.Component {
     }
 }
 
-class WeatherApplication extends React.Component {
+class Content extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const title = this.props.title;
+        if (title === "Wetter") {
+            return (
+                <>
+                    <h1 id="title">{title}</h1>
+                    <Board />
+                </>
+
+            );
+        }
+
+
+    }
+}
+
+class App extends React.Component {
 
     render() {
         const title = 'Wetter';
@@ -38,4 +59,4 @@ class WeatherApplication extends React.Component {
 }
 
 
-ReactDOM.render(<WeatherApplication /> , document.getElementById('root'));
+ReactDOM.render(<App /> , document.getElementById('root'));
