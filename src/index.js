@@ -9,35 +9,23 @@ import './index.scss';
 import './api/weather/weather';
 import Overview from "./weather/Overview";
 
-
-
-class Board extends React.Component {
-    render() {
-        return (
-            <>
-                <Overview />
-            </>
-        );
-    }
-}
-
 class Content extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const title = this.props.title;
-        if (title === "Wetter") {
-            return (
-                <>
-                    <h1 id="title">{title}</h1>
-                    <Board />
-                </>
+        let elements = [];
 
-            );
+        // Set the different views for the application
+        if (title === "Wetter") {
+            elements.push(<Overview />)
         }
 
+        return (
+            <>
+                <h1 id="title">{title}</h1>
+                {elements}
+            </>
+
+        );
 
     }
 }
@@ -49,8 +37,7 @@ class App extends React.Component {
 
         return (
             <>
-                <h1 id="title">{title}</h1>
-                <Board />
+                <Content title={title} />
             </>
 
         );
