@@ -28,7 +28,7 @@ class Placeholder extends React.Component{
     }
 }
 
-class Overview extends React.Component {
+class WeatherApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -153,4 +153,4 @@ class Overview extends React.Component {
 
 }
 
-export default Overview;
+export default WeatherApp;
