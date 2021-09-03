@@ -8,11 +8,13 @@ import './index.scss';
 // Internal imports
 import './api/weather/weather';
 import WeatherApp from "./components/weather/WeatherApp";
+import Navigation from "./components/Navigation/Navigation";
 
 class App extends React.Component {
         render() {
         return (
             <>
+                <Navigation />
                 <WeatherApp />
             </>
 

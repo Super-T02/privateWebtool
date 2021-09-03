@@ -1,4 +1,4 @@
-import style from "Navigation.module.scss"
+import style from "./Navigation.module.scss"
 
 export const MenuItems = [
     {

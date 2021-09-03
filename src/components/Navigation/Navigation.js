@@ -1,6 +1,6 @@
 import React from "react"
 import {MenuItems} from "./MenuItems";
-import style from "Navigation.module.scss"
+import style from "./Navigation.module.scss"
 
 class Navigation extends React.Component {
 
@@ -9,7 +9,7 @@ class Navigation extends React.Component {
         return (
             <>
                 <nav className={style.items}>
-                    <h1 className={style.logo}>Tom's Webtool</h1>
+                    <h1 className={style.logo}>Tom's Webtool <i className="fab fa-react"></i></h1>
                     <div className={style.menuIcon}>
 
                     </div>
