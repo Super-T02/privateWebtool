@@ -8,7 +8,7 @@ import style from './index.module.scss'
 
 // Internal imports
 import './api/weather/weather';
-import Overview from "./weather/Overview";
+import Overview from "./components/weather/Overview";
 
 class Content extends React.Component {
     render() {
