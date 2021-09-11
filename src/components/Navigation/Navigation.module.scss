@@ -1,21 +1,147 @@
-@import "src/styles/conifg.scss";
+@import "../../styles/conifg.scss";
+// Settings for the nav bar
+$number-of-links: 3;
 
 .items{
+  background: var(--main-color);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
 
+  .fa-react{
+    margin-left:  0.5rem;
+    font-size: 1.6rem;
+  }
 }
 
 .logo{
+  color: var(--light-shades);
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat($number-of-links, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: end;
+  margin-right: 2rem;
+}
+
+.active {
 
 }
 
 .menuIcon{
+  display: none;
 
+  .fa-bars, .fa-times{
+    color: var(--light-shades);
+  }
 }
 
 .links{
+  color: var(--light-shades);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
 
+.links:hover{
+  background-color: var(--light-accent);
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
 }
 
 .linksMobile{
+  display: none;
+}
 
+@media screen and (max-width: 960px){
+  .items{
+    position: relative;
+  }
+
+  .menu{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .menu.active {
+    background: var(--main-color);
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .links{
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .links:hover{
+    background: var(--light-accent);
+    border-radius: 0;
+  }
+
+  .logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+    font-size: 1.8rem;
+  }
+
+  .menuIcon{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .fa-times{
+    color: var(--light-shades);
+    font-size: 2rem;
+  }
+
+  .linksMobile {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    background: var(--dark-accent);
+    text-decoration: none;
+    color: var(--light-shades);
+    font-size: 1.5rem;
+  }
+
+  .linksMobile:hover{
+    background: var(--light-shades);
+    color: var(--main-color);
+    transition: 250ms;
+  }
+
+  Button {
+    display: none;
+  }
 }
