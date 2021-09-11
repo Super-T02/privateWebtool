@@ -4,6 +4,10 @@
 @import "styles/conifg.scss";
 @import "src/components/weather/weather.module";
 
+//Sizes
+$headline: 90px;
+$scrollbar: 3px;
+
 ::-webkit-scrollbar {
   width: $scrollbar;
   height: $scrollbar;
@@ -30,7 +34,7 @@
 
   html {
   min-height: 100vh;
-  background-color: var(--light-shades);
+  background-color: #fff;
   color: var(--dark-shades);
 }
 
@@ -60,25 +64,25 @@ h1{
 
 .card{
   background: {
-    color: white;
+    color: var(--light-shades);
   }
 
   border: {
     radius: 5px;
   }
 
-  color: $second-font-color;
+  color: var(--dark-shades);
 
   display: grid;
   place-items: center;
   text-align: center;
   transition: 0.5s;
 
-  box-shadow: $main-color 5px 5px 10px;
+  box-shadow: var(--shadow) 5px 5px 10px;
 }
 
 #overviewFiveDays{
-  color: $second-font-color;
+  color: var(--dark-shades);
   overflow-x: auto;
   display: flex;
   padding: 20px;
@@ -90,7 +94,7 @@ h1{
     height: 400px;
   }
   .wi {
-    color: $weather-color;
+    color: var(--dark-accent);
     font-size: 4em;
   }
 
@@ -98,11 +102,11 @@ h1{
 
 #title{
   @include padding-margin-null;
-  color: $font-color;
+  color: var(--dark-accent);
   padding: 10px;
 
   background: {
-    color: $main-color;
+    color: var(--main-color);
   }
 }
 

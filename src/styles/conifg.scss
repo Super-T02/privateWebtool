@@ -1,4 +1,4 @@
-
+//media scree
 $media-0: 520px;
 $media-1: 500px;
 
@@ -7,32 +7,6 @@ $media-1: 500px;
   margin: 0;
   padding: 0;
 }
-
-//Sizes
-$headline: 90px;
-$scrollbar: 3px;
-$spacing-normal: 20px;
-$spacing-shorter: 10px;
-
-
-//Colors
-$main-color: #A65F6D; // This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity.
-$light-shades: #ECE6D8; // Use this color as the background for your dark-on-light designs, or the text color of an inverted design.
-$light-accent: #E3636E; // Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette
-$dark-shades: #333554; // Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
-$dark-accent: #C44048; // Use as the text color for dark-on-light designs, or as the background for inverted designs.
-
-
-
-// old colors TODO: needs to be refactored to the new one
-$second-color: rgba(163, 161, 168, 0.8);
-$accent-color: #FFF587;
-$warning-color: #FF665A;
-$second-accent-color: #FF8C64;
-$font-color: white;
-$second-font-color: #3e3e3e;
-$weather-color: rgba(92, 126, 253, 0.85);
-$html-background: #eaeaea;
 
 //Fonts
 $font-family: 'Noto Sans',arial, sans-serif;
@@ -45,6 +19,12 @@ $font-family: 'Noto Sans',arial, sans-serif;
   --light-accent: #E3636E; // Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette
   --dark-shades: #333554; // Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
   --dark-accent: #C44048; // Use as the text color for dark-on-light designs, or as the background for inverted designs.
+  --shadow: #dbdbdb;
+
+  //spacings:
+  --spacing-normal: 20px;
+  --spacing-shorter: 10px;
+
 
   //Navbar
   --num-of-links: 3;
