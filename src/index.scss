@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 @import "styles/weather-icons.min.css";
 @import "styles/conifg.scss";
-@import "src/styles/weather.module";
+@import "src/components/weather/weather.module";
 
 ::-webkit-scrollbar {
   width: $scrollbar;
@@ -30,7 +30,8 @@
 
   html {
   min-height: 100vh;
-  background-color: $html-background;
+  background-color: var(--light-shades);
+  color: var(--dark-shades);
 }
 
 * {

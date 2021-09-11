@@ -7,38 +7,15 @@ import './index.scss';
 
 // Internal imports
 import './api/weather/weather';
-import Overview from "./weather/Overview";
-
-class Content extends React.Component {
-    render() {
-        const title = this.props.title;
-        let elements = [];
-
-        // Set the different views for the application
-        if (title === "Wetter") {
-            elements.push(<Overview />)
-        }
-
-        // test
-        return (
-            <>
-                <h1 id="title">{title}</h1>
-                {elements}
-            </>
-
-        );
-
-    }
-}
+import WeatherApp from "./components/weather/WeatherApp";
+import Navigation from "./components/Navigation/Navigation";
 
 class App extends React.Component {
-
-    render() {
-        const title = 'Wetter';
-
+        render() {
         return (
             <>
-                <Content title={title} />
+                <Navigation />
+                <WeatherApp />
             </>
 
         );
