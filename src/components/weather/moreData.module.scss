@@ -1,8 +1,8 @@
 @import "src/styles/conifg";
 
 .all{
-  margin: $spacing-normal;
-  padding: $spacing-normal;
+  margin: var(--spacing-normal);
+  padding: var(--spacing-normal);
   display: grid;
   place-items: center;
   text-align: center;
@@ -10,7 +10,7 @@
     template-columns: repeat(2, minmax(250px, 1fr));
     template-rows: auto minmax(200px, 450px);
   }
-  gap: $spacing-normal;
+  gap: var(--spacing-normal);
   transition: 1s;
 }
 
@@ -23,9 +23,8 @@
 .overview{
   width: 100%;
   height: 100%;
-  padding: $spacing-normal;
+  padding: var(--spacing-normal);
   display: grid;
-  box-shadow: $main-color 1px 1px 10px;
   grid: {
     template-columns: repeat(2, minmax(150px, 1fr));
     template-rows: repeat(auto-fill, auto);
@@ -34,7 +33,7 @@
     grid-column: 2;
     font-size: 25px;
     margin-top: 15px;
-    padding-top: $spacing-normal;
+    padding-top: var(--spacing-normal);
     i{
       font-size: 30px;
     }
@@ -49,7 +48,7 @@
     grid-column: span 1;
     margin: 50px 0 0 0;
     padding-bottom: 50px;
-    color: $weather-color;
+    color: var(--light-accent);
     font-size: 125px;
   }
 
@@ -88,9 +87,8 @@
   grid-column: span 1;
   width: 100%;
   height: 100%;
-  padding: $spacing-normal;
-  box-shadow: $main-color 1px 1px 10px;
-  overflow: scroll;
+  padding: var(--spacing-normal);
+  overflow: hidden;
 
   h2 {
     font-size: 30px;
@@ -99,9 +97,9 @@
 
 @media (max-width: $media-1) {
   .all{
-    margin: $spacing-shorter;
-    padding: $spacing-shorter;
-    gap: $spacing-shorter;
+    margin: var(--spacing-shorter);
+    padding: var(--spacing-shorter);
+    gap: var(--spacing-shorter);
 
     grid: {
       template-columns: repeat(2, minmax(250px, 1fr));
