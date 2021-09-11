@@ -1,6 +1,4 @@
 @import "../../styles/conifg.scss";
-// Settings for the nav bar
-$number-of-links: 3;
 
 .items{
   background: var(--main-color);
@@ -10,10 +8,7 @@ $number-of-links: 3;
   align-items: center;
   font-size: 1.2rem;
 
-  .fa-react{
-    margin-left:  0.5rem;
-    font-size: 1.6rem;
-  }
+  white-space: nowrap;
 }
 
 .logo{
@@ -25,13 +20,20 @@ $number-of-links: 3;
 
 .menu {
   display: grid;
-  grid-template-columns: repeat($number-of-links, auto);
+  grid-template-columns: repeat(var(--num-of-links), auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
   width: 70vw;
   justify-content: end;
   margin-right: 2rem;
+}
+.btn{
+  margin-right: 2rem;
+}
+
+.icons{
+  color: var(--light-shades);
 }
 
 .active {
@@ -40,10 +42,6 @@ $number-of-links: 3;
 
 .menuIcon{
   display: none;
-
-  .fa-bars, .fa-times{
-    color: var(--light-shades);
-  }
 }
 
 .links{
@@ -71,7 +69,7 @@ $number-of-links: 3;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 500px;
+    height: calc(var(--num-of-links) * 100px);
     position: absolute;
     top: 80px;
     left: -100%;
@@ -103,6 +101,7 @@ $number-of-links: 3;
     position: absolute;
     top: 0;
     left: 0;
+    margin-left: 0;
     transform: translate(25%, 50%);
     font-size: 1.8rem;
   }
@@ -112,21 +111,16 @@ $number-of-links: 3;
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
+    transform: translate(-100%, 50%);
     font-size: 1.8rem;
     cursor: pointer;
-  }
-
-  .fa-times{
-    color: var(--light-shades);
-    font-size: 2rem;
   }
 
   .linksMobile {
     display: block;
     text-align: center;
     padding: 1.5rem;
-    margin: 2rem auto;
+    margin: 1rem auto calc(10px + 1rem) auto;
     border-radius: 4px;
     width: 80%;
     background: var(--dark-accent);
@@ -141,7 +135,7 @@ $number-of-links: 3;
     transition: 250ms;
   }
 
-  Button {
+  .btn {
     display: none;
   }
 }

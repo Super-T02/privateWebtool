@@ -14,9 +14,9 @@ class Navigation extends React.Component {
         return (
             <>
                 <nav className={style.items}>
-                    <h1 className={style.logo}>Tom's Webtool <i className="fab fa-react"/></h1>
+                    <h1 className={style.logo}>Tom's Webtool <i className="fab fa-react"> </i></h1>
                     <div className={style.menuIcon} onClick={this.handleClick}>
-                        <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}/>
+                        <i className={this.state.clicked ? 'fas fa-times ' + style.icons : 'fas fa-bars ' + style.icons}> </i>
                     </div>
                     <ul className={this.state.clicked ? style.menu + ' ' + style.active : style.menu}>
                         {
@@ -32,7 +32,7 @@ class Navigation extends React.Component {
                             })
                         }
                     </ul>
-                    <Button>Sign Up</Button>
+                    <Button className={style.btn}>Sign Up</Button>
                 </nav>
             </>
         )
