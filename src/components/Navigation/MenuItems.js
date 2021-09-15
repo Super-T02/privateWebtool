@@ -3,12 +3,12 @@ import style from "./Navigation.module.scss"
 export const MenuItems = [
     {
         title: 'Home',
-        url: '#',
+        url: '/',
         cName: style.links,
     },
     {
         title: 'Wetter',
-        url: '#',
+        url: '/weather',
         cName: style.links,
     },
     {
