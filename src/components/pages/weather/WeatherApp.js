@@ -1,9 +1,9 @@
 import React from "react";
 
 import style from "./weather.module.scss";
-import animation from "../../styles/animations.module.scss"
+import animation from "../../../styles/animations.module.scss"
 
-import {weatherAPI} from "../../api/weather/weather";
+import {weatherAPI} from "../../../api/weather/weather";
 import Day from "./Day";
 import InformationBoard from "./moreData";
 
