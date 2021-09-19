@@ -26,6 +26,10 @@
   padding: var(--spacing-normal);
   display: grid;
 
+  i{ // important black color of the celsius
+    color: var(--accent);
+  }
+
   grid: {
     template-columns: repeat(2, minmax(150px, 1fr));
     template-rows: repeat(auto-fill, auto);

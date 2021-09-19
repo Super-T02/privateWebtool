@@ -16,7 +16,7 @@
 }
 
 .btn--primary {
-  background-color: var(--accent2);
+  background-color: var(--accent);
 }
 
 .btn--outline{
@@ -24,7 +24,7 @@
   color: var(--light);
   padding: 8px 20px;
   border-radius: 4px;
-  border: 1px solid var(--accent2);
+  border: 1px solid var(--accent);
   transition: all 0.3s ease-out;
 }
 
