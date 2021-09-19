@@ -11,20 +11,20 @@
 .btn:hover{
   padding: 8px 20px;
   transition: all 0.3s ease-out;
-  background: var(--light-shades);
-  color: var(--main-color);
+  background: var(--light);
+  color: var(--dark);
 }
 
 .btn--primary {
-  background-color: var(--dark-accent);
+  background-color: var(--accent2);
 }
 
 .btn--outline{
   background-color: transparent;
-  color: var(--light-shades);
+  color: var(--light);
   padding: 8px 20px;
   border-radius: 4px;
-  border: 1px solid var(--dark-accent);
+  border: 1px solid var(--accent2);
   transition: all 0.3s ease-out;
 }
 
@@ -32,12 +32,12 @@
   padding: 8px 20px;
   border-radius: 4px;
   font-size: 18px;
-  color: var(--light-shades);
+  color: var(--light);
 }
 
 .btn--large{
   padding: 12px 26px;
   border-radius: 4px;
   font-size: 20px;
-  color: var(--light-shades);
+  color: var(--light);
 }

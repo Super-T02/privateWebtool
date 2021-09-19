@@ -108,7 +108,7 @@ class InformationBoard extends React.Component {
 
                 </div>
                 <div className={style.temp}>
-                    <h2><i className={"wi wi-thermometer"} /> Temperatur</h2>
+                    <h2 className={style.head}><i className={"wi wi-thermometer"} /> Temperatur</h2>
                     <div>
                         <TempChart data={temperature}/>
                     </div>

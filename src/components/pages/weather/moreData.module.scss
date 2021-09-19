@@ -17,7 +17,7 @@
 .title{
   display: block;
   grid-column: span 2;
-
+  color: var(--accent2);
 }
 
 .overview{
@@ -25,10 +25,12 @@
   height: 100%;
   padding: var(--spacing-normal);
   display: grid;
+
   grid: {
     template-columns: repeat(2, minmax(150px, 1fr));
     template-rows: repeat(auto-fill, auto);
   }
+
   .umbrella{
     grid-column: 2;
     font-size: 25px;
@@ -48,7 +50,7 @@
     grid-column: span 1;
     margin: 50px 0 0 0;
     padding-bottom: 50px;
-    color: var(--light-accent);
+    color: var(--light);
     font-size: 125px;
   }
 
@@ -62,7 +64,6 @@
     align-items: center;
 
     .head{
-      font-size: 30px;
       grid-column: span 4;
       grid-row: 1;
     }
@@ -83,6 +84,12 @@
 }
 
 
+.temp, .overview{
+  h2{
+    font-size: 30px;
+  }
+}
+
 .temp{
   grid-column: span 1;
   width: 100%;
@@ -90,9 +97,6 @@
   padding: var(--spacing-normal);
   overflow: hidden;
 
-  h2 {
-    font-size: 30px;
-  }
 }
 
 @media (max-width: $media-1) {
