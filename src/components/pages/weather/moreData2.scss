@@ -1,0 +1,27 @@
+@import "src/styles/conifg";
+
+.weather-overview{
+  display: grid;
+}
+
+.weather-description{
+  display: grid;
+  grid-template-columns: repeat(2, 30px 100px);
+  gap: 10px;
+
+  .wi-thermometer{
+    grid-row: span 1;
+  }
+}
+
+.weather-short-description{
+  display: grid;
+  grid-template-columns: 30px 100px;
+  .wi-thermometer{
+    grid-row: span 1;
+  }
+
+  .weather-description-icon{
+    grid-column: span 2;
+  }
+}
