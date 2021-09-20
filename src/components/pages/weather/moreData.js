@@ -72,41 +72,39 @@ class InformationBoard extends React.Component {
 
         // Render
         return (
-            <div className={"card weather-overview"}>
+            <div className={"card weather-overview-wrapper"}>
                 <h1 id="moreInformation" className={"title"}>{date} {selected.getDate()}.{selected.getMonth() + 1} - {description}</h1>
-                <div className={"overview"}>
-                    <div className={"weather-short-description"}>
-                        <i className={"wi wi-umbrella"}/> {pop * 100}%
-                        <i className={`wi ${iconDay} weather-description-icon`}/>
-                        <i className={"wi wi-thermometer"}/> <div>{max | 1} <i className={"wi wi-celsius"}/></div>
-                    </div>
-                    <div className={"weather-description"}>
-                        {/*<h2 className={"head"}>Überblick</h2>*/}
-                        {/*Temperature*/}
-                        <i className={"wi wi-thermometer"} />
-                        <div>Min: {min | 1}<i className={"wi wi-celsius"}/></div>
+                <div className={"weather-overview"}>
+                    <i className={`wi ${iconDay} weather-description-icon`}/>
 
-                        <i className={"wi wi-thermometer"} />
-                        <div>Max:  {max | 1}<i className={"wi wi-celsius"}/></div>
+                    {/*<h2 className={"head"}>Überblick</h2>*/}
+                    {/*Temperature*/}
+                    <i className={"wi wi-thermometer"} />
+                    <div>Min: {min | 1}<i className={"wi wi-celsius"}/></div>
 
-                        {/*Sunrise*/}
-                        <i className={"wi wi-sunrise"}/>
-                        <div>{sunrise} Uhr</div>
+                    <i className={"wi wi-thermometer"} />
+                    <div>Max:  {max | 1}<i className={"wi wi-celsius"}/></div>
 
-                        {/*Sunset*/}
-                        <i className={"wi wi-sunset"}/>
-                        <div>{sunset} Uhr</div>
+                    {/*Sunrise*/}
+                    <i className={"wi wi-sunrise"}/>
+                    <div>{sunrise} Uhr</div>
 
-                        {/*Pressure*/}
-                        <i className={"wi wi-barometer"}/>
-                        <div>{pressure} hPa</div>
+                    {/*Sunset*/}
+                    <i className={"wi wi-sunset"}/>
+                    <div>{sunset} Uhr</div>
 
-                        {/*Humidity*/}
-                        <i className={"wi wi-humidity"}/>
-                        <div>r. F. {humidity}%</div>
-                    </div>
+                    {/*Rains in %*/}
+                    <i className={"wi wi-umbrella"}/> {pop * 100}%
+
+                    {/*Pressure*/}
+                    <i className={"wi wi-barometer"}/>
+                    <div>{pressure} hPa</div>
+
+                    {/*Humidity*/}
+                    <i className={"wi wi-humidity"}/>
+                    <div>r. F. {humidity}%</div>
                 </div>
-                <div className={"temp"}>
+                <div className={"weather-temp"}>
                     <h2 className={"head"}><i className={"wi wi-thermometer"} /> Temperatur</h2>
                     <div>
                         <TempChart data={temperature}/>
