@@ -73,7 +73,7 @@ class InformationBoard extends React.Component {
         // Render
         return (
             <div className={"card weather-overview-wrapper"}>
-                <h1 id="moreInformation" className={"title"}>{date} {selected.getDate()}.{selected.getMonth() + 1} - {description}</h1>
+                <h1 id="moreInformation" className={"weather-title"}>{date} {selected.getDate()}.{selected.getMonth() + 1} - {description}</h1>
                 <div className={"weather-overview"}>
                     <i className={`wi ${iconDay} weather-description-icon`}/>
 

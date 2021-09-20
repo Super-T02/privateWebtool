@@ -1,8 +1,9 @@
 @import "src/styles/conifg";
 
 .weather-overview-wrapper{
-  margin: var(--spacing-shorter);
-  padding: var(--spacing-shorter);
+  margin: var(--spacing-normal);
+  padding: var(--spacing-normal);
+  max-width: 1870px;
 }
 
 .weather-overview{
@@ -36,9 +37,37 @@
   width: 90%;
 }
 
-@media screen and (max-width: 400px){
+@media screen and (min-width: 1400px) {
+  .weather-overview-wrapper{
+    grid-template-columns: repeat(2, 1fr);
+
+    .weather-title{
+      grid-column: span 2;
+    }
+
+    .weather-temp{
+      font-size: 25px;
+      padding: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
   .weather-overview{
-    gap: 5px;
+    column-gap: 20px;
+    grid-template-columns: repeat(3, 50px 130px);
+    grid-template-rows: repeat(3, 60px);
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .weather-overview-wrapper{
+    margin: var(--spacing-shorter);
+    padding: var(--spacing-shorter);
+  }
+  .weather-overview{
+    column-gap: 5px;
     grid-template-columns: repeat(3, 20px 70px);
     margin-top: var(--spacing-shorter);
 
