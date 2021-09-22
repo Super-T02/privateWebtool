@@ -1,168 +1,89 @@
 @import "src/styles/conifg";
 
-.all{
+.weather-overview-wrapper{
   margin: var(--spacing-normal);
   padding: var(--spacing-normal);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  grid: {
-    template-columns: repeat(2, minmax(250px, 1fr));
-    template-rows: auto minmax(200px, 450px);
-  }
-  gap: var(--spacing-normal);
-  transition: 1s;
+  max-width: 1870px;
 }
 
-.title{
-  display: block;
-  grid-column: span 2;
-  color: var(--accent2);
-}
-
-.overview{
-  width: 100%;
-  height: 100%;
-  padding: var(--spacing-normal);
+.weather-overview{
   display: grid;
+  margin-top: calc(var(--spacing-normal) * 2);
 
-  i{ // important black color of the celsius
+  grid-template-columns: repeat(3, 30px 80px);
+  grid-template-rows: repeat(3, 40px);
+  column-gap: 10px;
+  align-items: center;
+
+  .weather-description-icon {
+    font-size: 80px;
+    grid-row: span 2;
+    grid-column: span 2;
+    position: relative;
+    top: calc(var(--spacing-shorter) * -1);
     color: var(--accent);
   }
 
-  grid: {
-    template-columns: repeat(2, minmax(150px, 1fr));
-    template-rows: repeat(auto-fill, auto);
+  .wi-umbrella{
+    transform: translateX(20px);
   }
 
-  .umbrella{
-    grid-column: 2;
-    font-size: 25px;
-    margin-top: 15px;
-    padding-top: var(--spacing-normal);
-    i{
+  .wi-thermometer{
+    grid-row: span 1;
+  }
+}
+
+.weather-temp{
+  margin-top: var(--spacing-normal);
+  width: 90%;
+}
+
+@media screen and (min-width: 1400px) {
+  .weather-overview-wrapper{
+    grid-template-columns: repeat(2, 1fr);
+
+    .weather-title{
+      grid-column: span 2;
+    }
+
+    .weather-overview {
       font-size: 30px;
-    }
-  }
-
-  .bigTep{
-    padding-top: 15px;
-    font-size: 30px;
-  }
-
-  .icon{
-    grid-column: span 1;
-    margin: 50px 0 0 0;
-    padding-bottom: 50px;
-    color: var(--light);
-    font-size: 125px;
-  }
-
-  .description{
-    grid-column: span 1;
-    display: grid;
-    grid: {
-      template-columns: repeat(2, 30px minmax(50px, 1fr));
-      template-rows: repeat(4, minmax(56px, 1fr));
-    }
-    align-items: center;
-
-    .head{
-      grid-column: span 4;
-      grid-row: 1;
+      grid-template-columns: repeat(3, 70px 150px);
+      grid-template-rows: repeat(3, 70px);
+      .weather-description-icon {
+        font-size: 120px;
+      }
     }
 
-    .littleicon{
-      grid-row: span 1;
-      grid-column: span 1;
-      padding: 5px;
-      text-align: center;
-    }
-
-    :not(h2){
-      padding: 5px;
-      font-size: 17px;
-      text-align: left;
+    .weather-temp{
+      font-size: 25px;
+      padding: 20px;
     }
   }
 }
 
-
-.temp, .overview{
-  h2{
-    font-size: 30px;
+@media screen and (min-width: 800px) {
+  .weather-overview{
+    column-gap: 20px;
+    grid-template-columns: repeat(3, 50px 130px);
+    grid-template-rows: repeat(3, 60px);
+    font-size: 25px;
   }
 }
 
-.temp{
-  grid-column: span 1;
-  width: 100%;
-  height: 100%;
-  padding: var(--spacing-normal);
-  overflow: hidden;
-
-}
-
-@media (max-width: $media-1) {
-  .all{
+@media screen and (max-width: 400px){
+  .weather-overview-wrapper{
     margin: var(--spacing-shorter);
     padding: var(--spacing-shorter);
-    gap: var(--spacing-shorter);
-
-    grid: {
-      template-columns: repeat(2, minmax(250px, 1fr));
-      template-rows: auto minmax(200px, 300px);
-    }
-
   }
+  .weather-overview{
+    column-gap: 5px;
+    grid-template-columns: repeat(3, 20px 70px);
+    margin-top: var(--spacing-shorter);
 
-  .overview{
-
-    max-height: 300px;
-
-    .icon{
-      font-size: 85px;
-    }
-    .umbrella{
-      margin-top: 5px;
-      i{
-        font-size: 20px;
-      }
-    }
-
-    .bigTep{
-      padding-top: 10px;
-    }
-
-    .description{
-
-      .head{
-        font-size: 25px;
-      }
+    .weather-description-icon{
+      font-size: 60px;
+      top: unset;
     }
   }
-
-}
-
-@media (max-width: 830px) {
-  .all{
-
-    grid-template-columns: repeat(1, minmax(250px, 1fr));
-  }
-
-  .overview{
-    .bigTep{
-      padding-top: unset;
-      font-size: 20px;
-    }
-
-    .umbrella{
-      margin-top: unset;
-    }
-  }
-
-  .title{
-    grid-column: span 1;
-  }
-
 }
