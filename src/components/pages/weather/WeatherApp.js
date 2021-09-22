@@ -1,4 +1,11 @@
 import React from "react";
+import {Swiper, SwiperSlide} from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/effect-coverflow/effect-coverflow.min.css";
+import "swiper/components/pagination/pagination.min.css";
+import "swiper/components/navigation/navigation.min.css";
+
+
 
 import style from "./weather.module.scss";
 import animation from "../../../styles/animations.module.scss"
@@ -6,6 +13,14 @@ import animation from "../../../styles/animations.module.scss"
 import {weatherAPI} from "../../../api/weather/weather";
 import Day from "./Day";
 import InformationBoard from "./moreData";
+
+import SwiperCore, {
+    EffectCoverflow,
+    Pagination,
+    Navigation
+} from "swiper/core";
+
+SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 class Placeholder extends React.Component{
     render() {
@@ -120,13 +135,16 @@ class WeatherApp extends React.Component {
             iterator === 1 ? tomorrow = true : tomorrow = false;
 
             rows.push(
-                <Day key={key}
-                     sendKey={key}
-                     onClick={this.onClick}
-                     today={today}
-                     tomorrow={tomorrow}
-                     weather={weatherElement}
-                     className={"day card"}/>
+                <SwiperSlide>
+                    <Day key={key}
+                         sendKey={key}
+                         onClick={this.onClick}
+                         today={today}
+                         tomorrow={tomorrow}
+                         weather={weatherElement}
+                         className={"day card"}/>
+                </SwiperSlide>
+
             );
 
             iterator++;
@@ -151,9 +169,29 @@ class WeatherApp extends React.Component {
                                 &#10095;
                             </div>
                             <div id={"overviewFiveDays"}>
-                                {rows}
+                                <Swiper
+                                    navigation={true}
+                                    effect={"coverflow"}
+                                    centeredSlides={true}
+                                    slidesPerView={window.innerWidth < 768 ? 1 : "auto"}
+                                    loop={true}
+                                    coverflowEffect={{
+                                        rotate: 50,
+                                        stretch: 0,
+                                        depth: 100,
+                                        modifier: 1,
+                                        slideShadows: true
+                                    }}
+                                    pagination={{
+                                        clickable: true
+                                    }}
+                                    className="mySwiper"
+                                >
+                                    {rows}
+                                </Swiper>
                             </div>
                             <InformationBoard moreInformation={moreInformation}/>
+
                         </div>
                     </>
                 );
