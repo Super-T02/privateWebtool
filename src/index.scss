@@ -8,6 +8,25 @@
 $headline: 90px;
 $scrollbar: 3px;
 
+// Vars
+:root{
+  // Colors
+  --shadow: #fff;
+  --light: #fff;
+  --dark: #000;
+  --dark-accent: #89001D;
+  --accent: #F8586E;
+  --light-accent: #FFBFCD;
+
+  //spacings:
+  --spacing-normal: 20px;
+  --spacing-shorter: 10px;
+
+
+  //Navbar
+  --num-of-links: 3;
+}
+
 ::-webkit-scrollbar {
   width: $scrollbar;
   height: $scrollbar;

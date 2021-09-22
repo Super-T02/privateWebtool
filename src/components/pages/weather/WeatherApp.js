@@ -46,10 +46,19 @@ class WeatherApp extends React.Component {
         }
     }
 
+    /**
+     * generates a key for each day
+     * @param date { Date }
+     * @returns { string }
+     */
     generateKey(date) {
         return '' + date.getDate() + date.getMonth() + date.getFullYear();
     }
 
+    /**
+     * changes the displayed more information
+     * @param key { string }
+     */
     onClick = (key) => {
         const {weather} = this.state;
 
@@ -69,6 +78,10 @@ class WeatherApp extends React.Component {
 
     }
 
+    /**
+     * scrolls one card to the left hand side
+     * @param id { string }
+     */
     scrollLeft(id){
         const gallery = document.getElementById(id);
         const scrollWidth = document.getElementsByClassName("day")[0].clientWidth + 10;
@@ -80,6 +93,10 @@ class WeatherApp extends React.Component {
         })
     }
 
+    /**
+     * scrolls one card to the right hand side
+     * @param id { string }
+     */
     scrollRight(id){
         const gallery = document.getElementById(id);
         const scrollWidth = document.getElementsByClassName("day")[0].clientWidth + 10;
