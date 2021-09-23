@@ -10,6 +10,7 @@ class Navigation extends React.Component {
     state = { clicked: false }
 
     handleClick = () => {
+        console.log('clicked');
         this.setState({ clicked: !this.state.clicked });
     }
 
