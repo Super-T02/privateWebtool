@@ -1,33 +1,56 @@
 import React from "react";
 
-import style from "./weather.module.scss";
+// Slider imports
+import {Swiper, SwiperSlide} from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css";
+import "swiper/components/navigation/navigation.min.css";
+import SwiperCore, {
+    Pagination,
+    Navigation
+} from "swiper/core";
+
+
+// Own css imports
+import "./weather.scss";
 import animation from "../../../styles/animations.module.scss"
 
+// Component import
 import {weatherAPI} from "../../../api/weather/weather";
 import Day from "./Day";
 import InformationBoard from "./moreData";
 
+
+// install Swiper
+SwiperCore.use([Pagination, Navigation]);
+
+/**
+ * Placeholder for the loading animation of the day slider
+ */
 class Placeholder extends React.Component{
     render() {
         return (
             <>
-                <div id="overviewFiveDays" className={style.placeHolderWrapper}>
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
+                <div id="overviewFiveDays" className={"placeHolderWrapper"}>
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
                 </div>
             </>
         );
     }
 }
 
+/**
+ * Weather Application
+ */
 class WeatherApp extends React.Component {
     constructor(props) {
         super(props);
@@ -109,10 +132,26 @@ class WeatherApp extends React.Component {
 
     render() {
         const {error, isLoaded, weather, moreInformation} = this.state;
-        let rows = [];
+        const { innerWidth: width, innerHeight: height } = window;
 
+        // Slider Settings default ( < 800 px)
+        let slidesPerView = 2;
+        let shouldCenter = true;
+
+        // Settings for the slider
+        if (width > 800) slidesPerView = 3;
+        if (width > 1000) {
+            slidesPerView = 4;
+            shouldCenter = false;
+        }
+        if (width > 1800) slidesPerView = 5;
+        if (width > 2000) slidesPerView = 6;
+
+        // Defaults for day generation
+        let rows = [];
         let iterator = 0;
 
+        // generate the day
         for (const weatherElement of weather) {
             let today, tomorrow = false;
             let key = this.generateKey(new Date(weatherElement.data.dt * 1000));
@@ -120,13 +159,16 @@ class WeatherApp extends React.Component {
             iterator === 1 ? tomorrow = true : tomorrow = false;
 
             rows.push(
-                <Day key={key}
-                     sendKey={key}
-                     onClick={this.onClick}
-                     today={today}
-                     tomorrow={tomorrow}
-                     weather={weatherElement}
-                     className={"day card"}/>
+                <SwiperSlide className={"weather-day-slide"}>
+                    <Day key={key}
+                         sendKey={key}
+                         onClick={this.onClick}
+                         today={today}
+                         tomorrow={tomorrow}
+                         weather={weatherElement}
+                         className={"day card"}/>
+                </SwiperSlide>
+
             );
 
             iterator++;
@@ -143,18 +185,22 @@ class WeatherApp extends React.Component {
             } else
                 return (
                     <>
-                        <div >
-                            <div className={style.leftSlider} onClick={() => this.scrollLeft("overviewFiveDays")}>
-                                &#10094;
-                            </div>
-                            <div className={style.rightSlider} onClick={() => this.scrollRight("overviewFiveDays")}>
-                                &#10095;
-                            </div>
-                            <div id={"overviewFiveDays"}>
+                        <div id={"overviewFiveDays"}>
+                            <Swiper
+                                navigation={true}
+                                centeredSlides={shouldCenter}
+                                slidesPerView={slidesPerView}
+                                paggination={true}
+                                spaceBetween={50}
+                                pagination={{
+                                    clickable: false
+                                }}
+                                className="weather-swiper"
+                            >
                                 {rows}
-                            </div>
-                            <InformationBoard moreInformation={moreInformation}/>
+                            </Swiper>
                         </div>
+                        <InformationBoard moreInformation={moreInformation}/>
                     </>
                 );
         } else {
