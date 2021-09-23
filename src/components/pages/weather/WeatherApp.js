@@ -1,27 +1,32 @@
 import React from "react";
+
+// Slider imports
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/swiper.min.css";
-import "swiper/components/effect-coverflow/effect-coverflow.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
-
-
-
-import "./weather.scss";
-import animation from "../../../styles/animations.module.scss"
-
-import {weatherAPI} from "../../../api/weather/weather";
-import Day from "./Day";
-import InformationBoard from "./moreData";
-
 import SwiperCore, {
-    EffectCoverflow,
     Pagination,
     Navigation
 } from "swiper/core";
 
-SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
+// Own css imports
+import "./weather.scss";
+import animation from "../../../styles/animations.module.scss"
+
+// Component import
+import {weatherAPI} from "../../../api/weather/weather";
+import Day from "./Day";
+import InformationBoard from "./moreData";
+
+
+// install Swiper
+SwiperCore.use([Pagination, Navigation]);
+
+/**
+ * Placeholder for the loading animation of the day slider
+ */
 class Placeholder extends React.Component{
     render() {
         return (
@@ -43,6 +48,9 @@ class Placeholder extends React.Component{
     }
 }
 
+/**
+ * Weather Application
+ */
 class WeatherApp extends React.Component {
     constructor(props) {
         super(props);
@@ -125,8 +133,12 @@ class WeatherApp extends React.Component {
     render() {
         const {error, isLoaded, weather, moreInformation} = this.state;
         const { innerWidth: width, innerHeight: height } = window;
+
+        // Slider Settings default ( < 800 px)
         let slidesPerView = 2;
         let shouldCenter = true;
+
+        // Settings for the slider
         if (width > 800) slidesPerView = 3;
         if (width > 1000) {
             slidesPerView = 4;
@@ -135,10 +147,11 @@ class WeatherApp extends React.Component {
         if (width > 1800) slidesPerView = 5;
         if (width > 2000) slidesPerView = 6;
 
+        // Defaults for day generation
         let rows = [];
-
         let iterator = 0;
 
+        // generate the day
         for (const weatherElement of weather) {
             let today, tomorrow = false;
             let key = this.generateKey(new Date(weatherElement.data.dt * 1000));
