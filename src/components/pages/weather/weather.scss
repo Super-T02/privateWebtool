@@ -1,35 +1,22 @@
 @import "src/styles/conifg";
 @import "src/styles/animations.module";
 
+:root{
+  --swiper-navigation-color: #89001d;
+  --swiper-pagination-color: #89001d;
+}
 
 .day.card{
   padding: 30px;
-  background: var(--light-shades);
+  background: var(--light);
 }
 
-.leftSlider, .rightSlider{
-  cursor: pointer;
-  position: absolute;
-  top: 45%;
-  width: auto;
-  margin-top: -22px;
-  padding: 20px;
-  font-weight: bold;
-  font-size: 25px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  color: #555555;
-  transform: translateY(-50%);
+.weather-swiper {
+  width: 100%;
 }
 
-.rightSlider{
-  right: 0;
-}
-
-.leftSlider:hover, .rightSlider:hover{
-  color: white;
-  background-color: rgba(0,0,0,0.8);
+.weather-day-slide{
+  width: 80px;
 }
 
 .placeHolder{

@@ -54,15 +54,15 @@ class Day extends React.Component {
 
         return (
             <div className={className} onClick={() => onClick(sendKey)} >
-                <h2>{day}<br/>{date.getDate()}.{date.getMonth() + 1}</h2>
+                <h2 className="heading">{day}<br/>{date.getDate()}.{date.getMonth() + 1}</h2>
                 <i className={"wi " + weather.iconDay}/>
                 <h3>{weather.description}</h3>
                 <div className={"temperature"}>
                     <i className={"wi wi-thermometer"}/>
-                    <span style={{color: "blue"}}>
+                    <span className={"tempMin"}>
                         Min: {min} &#8451;
                     </span>
-                    <span style={{color: "red"}}>
+                    <span className={"tempMax"}>
                         Max: {max} &#8451;
                     </span>
                 </div>
