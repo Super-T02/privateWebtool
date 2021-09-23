@@ -1,4 +1,75 @@
-# Getting Started with Create React App
+# Instalation on a RaspberryPi
+
+Make shure you have installed node.js and npm on the raspberrypi!
+
+## 1. Get the actual build files
+Got to the actual releases and move them on your RaspberryPi in a own diractory
+(opt.) For devs:
+clonde git Repository
+Open Terminal in the cloned folder
+Run `npm install`
+Run `npm run build`
+In the folder **./build** the finished build will be generated
+Additionaly you should copy the folder **./backend**.
+Move/ Paste poth dirs to your pi
+
+## 2. Install all needed package for the backend
+Go into the dir of the backend and run in Terminal: `sudo npm install`
+
+## 2. Activate services for starting the app on boot
+In the following steps the backend and the front-end are in to different dirs. Their paths are **[PATHTOBACKEND]** and **[PATHTOFRONTEND]** please work here with absolute paths.
+
+We will generate the services over systemd, code from [learn.sparkfun.com](https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup#method-3-systemd):
+
+  1. generate the service for the Backend, so open terminal and run:  `sudo nano /lib/systemd/system/backend.service`
+  2. Type: 
+``` 
+  [Unit]
+  Description=Starts the backend for my webApp at Port 3001
+  After=multi-user.target
+
+  [Service]
+  ExecStart=/usr/bin/node [PATHTOBACKEND]
+
+  [Install]
+  WantedBy=multi-user.target 
+```
+Save and close the file
+
+  3. Run in Terminal: `sudo systemctl daemon-reload` && `sudo systemctl enable backend.service`
+  4. generate the Service for the Frontent, type in terminal: `sudo nano /lib/systemd/system/webApp.service`
+  5. Type:
+``` 
+  [Unit]
+  Description=Starts my webApp at Port 80
+  After=multi-user.target
+
+  [Service]
+  ExecStart=/usr/local/bin/serve -s [PATHTOFRONTEND] -l 80
+
+  [Install]
+  WantedBy=multi-user.target 
+```
+6. Run in Terminal: `sudo systemctl daemon-reload` && `sudo systemctl enable webApp.service`
+7. Type `sudo reboot` for starting the services
+
+## Finished
+The App itself runs on port 80. So `http://[nameOfPi]` in the Browser and the backend runs on port 3001: `http://[nameOfPi]:3001`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Autogenarated from React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
