@@ -1,6 +1,6 @@
 # Instalation on a RaspberryPi
 
-Make shure you have installed node.js and npm on the raspberrypi!
+Make shure you have installed node.js, npm and serve on the raspberrypi!
 
 ## 1. Get the actual build files
 Got to the actual releases and move them on your RaspberryPi in a own diractory
