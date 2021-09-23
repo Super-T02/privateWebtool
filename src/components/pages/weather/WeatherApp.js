@@ -7,7 +7,7 @@ import "swiper/components/navigation/navigation.min.css";
 
 
 
-import style from "./weather.module.scss";
+import "./weather.scss";
 import animation from "../../../styles/animations.module.scss"
 
 import {weatherAPI} from "../../../api/weather/weather";
@@ -26,17 +26,17 @@ class Placeholder extends React.Component{
     render() {
         return (
             <>
-                <div id="overviewFiveDays" className={style.placeHolderWrapper}>
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
-                    <div className={"card day " + style.placeHolder} />
+                <div id="overviewFiveDays" className={"placeHolderWrapper"}>
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
+                    <div className={"card day placeHolder"} />
                 </div>
             </>
         );
@@ -124,6 +124,17 @@ class WeatherApp extends React.Component {
 
     render() {
         const {error, isLoaded, weather, moreInformation} = this.state;
+        const { innerWidth: width, innerHeight: height } = window;
+        let slidesPerView = 2;
+        let shouldCenter = true;
+        if (width > 800) slidesPerView = 3;
+        if (width > 1000) {
+            slidesPerView = 4;
+            shouldCenter = false;
+        }
+        if (width > 1800) slidesPerView = 5;
+        if (width > 2000) slidesPerView = 6;
+
         let rows = [];
 
         let iterator = 0;
@@ -135,7 +146,7 @@ class WeatherApp extends React.Component {
             iterator === 1 ? tomorrow = true : tomorrow = false;
 
             rows.push(
-                <SwiperSlide>
+                <SwiperSlide className={"weather-day-slide"}>
                     <Day key={key}
                          sendKey={key}
                          onClick={this.onClick}
@@ -161,38 +172,22 @@ class WeatherApp extends React.Component {
             } else
                 return (
                     <>
-                        <div >
-                            <div className={style.leftSlider} onClick={() => this.scrollLeft("overviewFiveDays")}>
-                                &#10094;
-                            </div>
-                            <div className={style.rightSlider} onClick={() => this.scrollRight("overviewFiveDays")}>
-                                &#10095;
-                            </div>
-                            <div id={"overviewFiveDays"}>
-                                <Swiper
-                                    navigation={true}
-                                    effect={"coverflow"}
-                                    centeredSlides={true}
-                                    slidesPerView={window.innerWidth < 768 ? 1 : "auto"}
-                                    loop={true}
-                                    coverflowEffect={{
-                                        rotate: 50,
-                                        stretch: 0,
-                                        depth: 100,
-                                        modifier: 1,
-                                        slideShadows: true
-                                    }}
-                                    pagination={{
-                                        clickable: true
-                                    }}
-                                    className="mySwiper"
-                                >
-                                    {rows}
-                                </Swiper>
-                            </div>
-                            <InformationBoard moreInformation={moreInformation}/>
-
+                        <div id={"overviewFiveDays"}>
+                            <Swiper
+                                navigation={true}
+                                centeredSlides={shouldCenter}
+                                slidesPerView={slidesPerView}
+                                paggination={true}
+                                spaceBetween={50}
+                                pagination={{
+                                    clickable: false
+                                }}
+                                className="weather-swiper"
+                            >
+                                {rows}
+                            </Swiper>
                         </div>
+                        <InformationBoard moreInformation={moreInformation}/>
                     </>
                 );
         } else {
