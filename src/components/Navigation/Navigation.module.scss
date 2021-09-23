@@ -40,6 +40,7 @@
   color: var(--light);
 }
 
+
 .active {
 
 }
@@ -52,6 +53,7 @@
   color: var(--light);
   text-decoration: none;
   padding: 0.5rem 1rem;
+  z-index: 2;
 }
 
 .links:hover{
@@ -63,6 +65,7 @@
 
 .linksMobile{
   display: none;
+  z-index: 2;
 }
 
 @media screen and (max-width: 960px){
@@ -88,7 +91,7 @@
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
-    z-index: 1;
+    z-index: 2;
   }
 
   .links{
@@ -145,4 +148,5 @@
   .btn {
     display: none;
   }
+
 }

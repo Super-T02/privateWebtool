@@ -2,7 +2,7 @@
 import $ from 'jquery';
 import {ATMOSPHERE, CLEAR, CLOUDS, DRIZZLE, RAIN, SNOW, THUNDERSTORMS} from "./weather-config";
 
-const hostname = 'toms-laptop';
+const hostname = 'raspberrypi';
 
 export class weatherAPI {
     static declareWeather(data, maxAmount) {
