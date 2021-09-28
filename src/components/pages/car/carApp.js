@@ -1,11 +1,18 @@
 import { Component } from "react";
-import { Button } from "react-bootstrap";
+import DataTable from "./DataTable";
+import {carData} from "./data";
 
 export class CarApp extends Component {
+
+
     render() {
         return (
             <>
-                <Button onClick={() => alert("Moin alla")}>Test</Button>
+                <DataTable type={"Steuern"} datasets={carData.TAXES} />
+                <DataTable type={"Tanken"} datasets={carData.FUEL} />
+                <DataTable type={"Versicherung"} datasets={carData.INSURANCE} />
+                <DataTable type={"Reperatur"} datasets={carData.REPAIR} />
+                <DataTable type={"Rest"} datasets={carData.REST} />
             </>
         );
     }
