@@ -7,6 +7,11 @@ export const MenuItems = [
         cName: style.links,
     },
     {
+        title: 'Auto',
+        url: '/car',
+        cName: style.links,
+    },
+    {
         title: 'Wetter',
         url: '/weather',
         cName: style.links,

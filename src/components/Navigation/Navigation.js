@@ -5,6 +5,7 @@ import {Button} from "../Button";
 import {Link, Switch, Route, BrowserRouter as Router} from "react-router-dom";
 import WeatherApp from "../pages/weather/WeatherApp";
 import Home from "../pages/home/home";
+import CarApp from "../pages/car/carApp";
 
 class Navigation extends React.Component {
     state = { clicked: false }
@@ -42,6 +43,7 @@ class Navigation extends React.Component {
                         <Button className={style.btn}>Sign Up</Button>
                     </nav>
                     <Switch>
+                        <Route path={"/car"} component={CarApp}/>
                         <Route path={"/weather"} component={WeatherApp}/>
                         <Route path={"/"} component={Home}/>
                     </Switch>
