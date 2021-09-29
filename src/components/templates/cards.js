@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const Glass = styled.div`
-    top: 0;
-    left: 0;
     width: ${props => props.width || "auto"};
     height: ${props => props.height|| "auto"};
     padding: ${props => props.padding || "20px"};
