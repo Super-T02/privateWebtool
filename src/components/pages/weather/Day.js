@@ -1,4 +1,5 @@
 import React from "react";
+import Glass from "../../templates/cards";
 
 
 
@@ -53,7 +54,7 @@ class Day extends React.Component {
 
 
         return (
-            <div className={className} onClick={() => onClick(sendKey)} >
+            <Glass padding={"30px"} className={className} onClick={() => onClick(sendKey)} >
                 <h2 className="heading">{day}<br/>{date.getDate()}.{date.getMonth() + 1}</h2>
                 <i className={"wi " + weather.iconDay}/>
                 <h3>{weather.description}</h3>
@@ -66,7 +67,7 @@ class Day extends React.Component {
                         Max: {max} &#8451;
                     </span>
                 </div>
-            </div>
+            </Glass>
         );
     }
 }

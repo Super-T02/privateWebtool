@@ -1,4 +1,5 @@
 import React from "react";
+import Glass from "../../templates/cards";
 
 
 class Home extends React.Component {

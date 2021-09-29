@@ -32,16 +32,16 @@ class Placeholder extends React.Component{
         return (
             <>
                 <div id="overviewFiveDays" className={"placeHolderWrapper"}>
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
-                    <div className={"card day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
+                    <div className={"myCard day placeHolder"} />
                 </div>
             </>
         );
@@ -166,7 +166,7 @@ class WeatherApp extends React.Component {
                          today={today}
                          tomorrow={tomorrow}
                          weather={weatherElement}
-                         className={"day card"}/>
+                         className={"day myCard"}/>
                 </SwiperSlide>
 
             );

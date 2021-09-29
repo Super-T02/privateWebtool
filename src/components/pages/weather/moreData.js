@@ -2,6 +2,7 @@ import React from "react";
 import Day from "./Day";
 import "./moreData.scss";
 import TempChart from "./Charts/TempChart";
+import Glass from "../../templates/cards";
 class InformationBoard extends React.Component {
 
     render() {
@@ -72,7 +73,7 @@ class InformationBoard extends React.Component {
 
         // Render
         return (
-            <div className={"card weather-overview-wrapper"}>
+            <Glass className={"myCard weather-overview-wrapper"}>
                 <h1 id="moreInformation" className={"weather-" +
                 "" +
                 "title"}>{date} {selected.getDate()}.{selected.getMonth() + 1} - {description}</h1>
@@ -112,7 +113,7 @@ class InformationBoard extends React.Component {
                         <TempChart data={temperature}/>
                     </div>
                 </div>
-            </div>
+            </Glass>
 
         );
     }
